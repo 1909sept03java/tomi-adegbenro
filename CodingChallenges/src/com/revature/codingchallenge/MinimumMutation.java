@@ -54,14 +54,17 @@ public class MinimumMutation {
 			int count =0;
 			System.out.println("First print of s i checkBank: "+s);
 			for(String i:b) {
+				System.out.println("String is: "+s+" "+"bank[i] is: "+i);
 				if (s == i) {
 					//debug
-					System.out.println("s: "+s);
-					count++;
-					System.out.println(s+" , "+ count);
+					System.out.println("true");
+					return count;
+					//System.out.println("s+ , "+ count);
 				}
 				else {
-					continue;
+					System.out.println("false");
+					count++;
+					//continue;
 				}
 			}
 			if(count == 0) {
