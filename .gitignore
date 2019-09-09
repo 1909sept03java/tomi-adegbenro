@@ -91,4 +91,9 @@ local.properties
 
 .sts4-cache/
 
+### Maven ###
+# Maven
+/target/
+
+
 # End of https://www.gitignore.io/api/eclipse
