@@ -11,87 +11,89 @@ public class MinimumMutation {
 		String start = "AACCGGTT";
 		String end = "AAACGGTA";
 		String[] bank = {"AACCGGTA", "AACCGCTA", "AAACGGTA"};
-		//System.out.println(bank[0]);
 		
-		minMute(start, end, bank);
+		//Check Validity of Start String;
+		Boolean check_valid = checkvalid(start);
+		if(check_valid == false) {
+			int min = -1;
+		}
+		else {
+			int min = minMutation(start, end, bank);
+			System.out.println("Minimal Mutation Result: "+min);
+		}
+		
 	}
 	
 	
 	
-	
+	//This Method Checks the Validity of a String
 	static Boolean checkvalid(String s) {
 		if (s.length() != 8) {
 			System.out.println("Not Valid - # of Mutations");
 			return false;
 		}
 		else{
-			//MinMute(s);
 			return true;
 		}
 	}
 		
-	static void minMute(String s, String e, String[] b)	{
+	//This Method Initiates the Iteration to Check for the Minimum # of Mutations
+	static int minMutation(String s, String e, String[] b)	{
+		/*Debug
+		 * System.out.println("Original Start: "+ s);
+		 */
 		String test = s;
-		int count =0;
+		int mut_count = 0;
 		int check=0;
 		for (int x = 0; x <test.length(); x++) {
+			/*Debug
+			 * System.out.println("Start MinMute For Loop");
+			 */
 			if(test.charAt(x) != e.charAt(x)) {
-				count++;
-				test = test.substring(0, x)+e.charAt(x)+test.substring(x+1);
-				System.out.println(test);
+				mut_count++;
+				test = test.substring(0, x)+e.charAt(x)+test.substring(x+1);//Replace char to match End String
+				/* Debug
+				 * System.out.println(test);
+				 */
 				check = checkBank(test, b);
 			}
 			else {
 				continue;
 			}
-			System.out.println("Count in MinMute: "+count);
-			
+			/* Debug 
+			System.out.println("Count in MinMutation: "+mut_count);
+			*/
 		}
+		
+		/* Debug
 		System.out.println("Count in checkBank: "+check);
+		*/
+		
+		if(check == 0) {
+			return -1;
+		}
+		return mut_count;
 	}
 		
+	//This method Checks for End Mutation in Bank
 		static int checkBank(String s, String[] b) {
-			int count =0;
-			System.out.println("First print of s i checkBank: "+s);
+			
 			for(String i:b) {
-				System.out.println("String is: "+s+" "+"bank[i] is: "+i);
-				if (s == i) {
+				String temp = s;
+				System.out.println("String lookup. Start: "+ temp +" with "+"Bank Entry: "+i);
+				if (temp.equals(i)) {
 					//debug
 					System.out.println("true");
-					return count;
+					return 1;
 					//System.out.println("s+ , "+ count);
 				}
 				else {
 					System.out.println("false");
-					count++;
-					//continue;
+					continue;
 				}
 			}
-			if(count == 0) {
-				return -1;
-			}
-			else {
-				return count;
-			}
+			return 0;
 		}
-		/*for (String i: b) {
-			if(test == i) {
-				return 1;
-			}
-			else {
-				for (int x=0; x < test.length(); x++) {
-					if(test.charAt(x) == i.charAt(x)) {
-						continue;
-					}else {
-						test= test.substring(0,4)+'X'+test.substring(5);
-		
-						System.out.println(test);
-						
-					}
-				}
-			}
-		}*/
-		//return 3;
 	}
 
 
