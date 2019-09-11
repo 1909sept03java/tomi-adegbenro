@@ -24,13 +24,13 @@ public class BubbleSort {
 		}
 		
 		//Perform Bubble sort
-		bubbleSort(array);
+		int[] bubbles = bubbleSort(array);
 		//Print out Array
-		printArray(array);
+		printArray(bubbles);
 		
 	}
 	
-	static void bubbleSort(int [] arr) {
+	static int[] bubbleSort(int [] arr) {
 		int n = arr.length;
 		//Looping through the array
 		for (int i=0; i < n-1; i++) {
@@ -42,6 +42,7 @@ public class BubbleSort {
 				}
 			}
 		}
+		return arr;
 	}
 	
 	//Printing the array

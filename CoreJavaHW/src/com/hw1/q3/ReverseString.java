@@ -38,6 +38,7 @@ public class ReverseString {
 		System.out.println("Enter string value: ");
 		String input = scanner.nextLine();
 		reverseString(input);
+		scanner.close();
 	}
 
 }
