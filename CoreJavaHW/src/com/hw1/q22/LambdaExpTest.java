@@ -1,5 +1,6 @@
 package com.hw1.q22;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -15,7 +16,7 @@ class LambdaExpTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		lambda = new LambdaExxp();
+		lambda = new LambdaExp();
 	}
 
 	@AfterAll
@@ -34,7 +35,7 @@ class LambdaExpTest {
 	void test() {
 		int expResult = 10;
 		
-		//assertEquals(expResult, LambdaExp. .interestCalc(p,r,t)
+		//assertEquals(expResult, LambdaExp.main(null));
 				
 		fail("Not yet implemented");
 	}
