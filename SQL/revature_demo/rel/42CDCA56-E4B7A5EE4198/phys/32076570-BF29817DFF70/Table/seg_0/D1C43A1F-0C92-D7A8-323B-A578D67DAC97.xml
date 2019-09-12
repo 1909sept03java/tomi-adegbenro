@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="BEAR_TYPE" directorySegmentName="seg_0" id="D1C43A1F-0C92-D7A8-323B-A578D67DAC97">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<schemaObject>B41491F1-BC98-F853-B0B5-2D36306A406C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>59EEF6E1-298A-66F5-4846-602B146F976D</segment>
+<tableSpace>86E748D6-5824-E08C-2E55-75CD8C268232</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BEAR_TYPE_NAME" id="13AF2E4F-E3A9-32CE-A4FA-4369CF3F3E8F">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BEAR_TYPE_ID" id="A4DB0587-6BC0-7C10-2A32-1FB62E731BA9">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BEAR_TYPE_PK" id="1265FE99-E95E-6F99-3DF0-F39E0BB00246">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<schemaObject>B41491F1-BC98-F853-B0B5-2D36306A406C</schemaObject>
+<segment>8784C481-6C97-CAC8-94A4-D0CC78EE5ADE</segment>
+<tableSpace>86E748D6-5824-E08C-2E55-75CD8C268232</tableSpace>
+<indexSegment>8784C481-6C97-CAC8-94A4-D0CC78EE5ADE</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="566EBFE1-9AA1-D815-2B91-7E0B16D64E42" schemaObject="B41491F1-BC98-F853-B0B5-2D36306A406C" name="BEAR">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>0800855B-7B56-C439-30FB-D854B02ED1B9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BEAR_ID" id="C934FABD-B286-B9A8-DDC6-9C1324F3744D">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>A20003AE-1875-0F00-5024-FF80F67EEC1F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BEAR_NAME" id="B8D53453-4514-3222-0676-9449A65D2522">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>CA2D126C-8AC0-B25D-74A7-88489B3193B9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BIRTHDATE" id="85974D85-1428-DB61-5249-F97A9D8A64EA">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>CA9CA8E5-5FDF-6408-6695-1899BB38A6BE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WEIGHT" id="F190A3BF-34BB-B025-0BF4-953D275C2C33">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>951754DE-29AB-31EB-A6FA-A71C4DE8E28D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<defaultValue>200.00</defaultValue>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BEAR_TYPE_ID" id="3B684E11-9DB7-FCFD-10B4-C27E66492933">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>866466CF-5934-2F9D-389D-771F27F4244F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DDA352DE-0695-6DD4-EBF9-E0A83F8C7574" referredColumn="A4DB0587-6BC0-7C10-2A32-1FB62E731BA9"/>
+</associations>
+</Column>
+<Column name="CAVE_ID" id="0DBFA97C-C4AD-03E1-BF29-D01DB3FD769E">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>ED8FD056-96C9-D250-8289-9E456BC8B58E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1DB4E418-4C3E-609D-D418-6FA3C73F4B93" schemaObject="B41491F1-BC98-F853-B0B5-2D36306A406C" name="BEAR_PK">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>6CC86339-4D88-5789-6534-60A38C1193EB</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C934FABD-B286-B9A8-DDC6-9C1324F3744D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68785B08-5379-9790-DDFF-A4C8CA47A95E" name="FK_BEAR_BEAR_TYPE">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B684E11-9DB7-FCFD-10B4-C27E66492933"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CE5D3070-D3AA-29FD-7A17-D3DB993D9141" name="FK_BEAR_CAVE">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DBFA97C-C4AD-03E1-BF29-D01DB3FD769E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

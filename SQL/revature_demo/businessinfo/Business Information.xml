@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="0C4134FD-1C2E-9F27-7E70-FC29A4ED19FE">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:18 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

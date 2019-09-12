@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D1C43A1F-0C92-D7A8-323B-A578D67DAC97" schemaObject="B41491F1-BC98-F853-B0B5-2D36306A406C" name="BEAR_TYPE">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>E1E56B8A-51DF-36DD-7847-7747153ECE29</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BEAR_TYPE_ID" id="A4DB0587-6BC0-7C10-2A32-1FB62E731BA9">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>202464E3-3B7A-6BDC-B7CA-CEF2B912CCCD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BEAR_TYPE_NAME" id="13AF2E4F-E3A9-32CE-A4FA-4369CF3F3E8F">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>5B67BD4F-E553-BE75-BB9B-C317AF432859</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1265FE99-E95E-6F99-3DF0-F39E0BB00246" schemaObject="B41491F1-BC98-F853-B0B5-2D36306A406C" name="BEAR_TYPE_PK">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>18F6C0C2-DCDC-3A28-7DCB-A1133FD7EE72</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4DB0587-6BC0-7C10-2A32-1FB62E731BA9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="BEAR" directorySegmentName="seg_0" id="566EBFE1-9AA1-D815-2B91-7E0B16D64E42">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<schemaObject>B41491F1-BC98-F853-B0B5-2D36306A406C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>59EEF6E1-298A-66F5-4846-602B146F976D</segment>
+<tableSpace>86E748D6-5824-E08C-2E55-75CD8C268232</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CAVE_ID" id="0DBFA97C-C4AD-03E1-BF29-D01DB3FD769E">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BEAR_TYPE_ID" id="3B684E11-9DB7-FCFD-10B4-C27E66492933">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BIRTHDATE" id="85974D85-1428-DB61-5249-F97A9D8A64EA">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BEAR_NAME" id="B8D53453-4514-3222-0676-9449A65D2522">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BEAR_ID" id="C934FABD-B286-B9A8-DDC6-9C1324F3744D">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WEIGHT" id="F190A3BF-34BB-B025-0BF4-953D275C2C33">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<defaultValue>200.00</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BEAR_BEAR_TYPE" id="68785B08-5379-9790-DDFF-A4C8CA47A95E">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BEAR_CAVE" id="CE5D3070-D3AA-29FD-7A17-D3DB993D9141">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BEAR_PK" id="1DB4E418-4C3E-609D-D418-6FA3C73F4B93">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<schemaObject>B41491F1-BC98-F853-B0B5-2D36306A406C</schemaObject>
+<segment>8784C481-6C97-CAC8-94A4-D0CC78EE5ADE</segment>
+<tableSpace>86E748D6-5824-E08C-2E55-75CD8C268232</tableSpace>
+<indexSegment>8784C481-6C97-CAC8-94A4-D0CC78EE5ADE</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

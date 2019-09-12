@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DDA352DE-0695-6DD4-EBF9-E0A83F8C7574" containerWithKeyObject="566EBFE1-9AA1-D815-2B91-7E0B16D64E42" localFKIndex="68785B08-5379-9790-DDFF-A4C8CA47A95E" name="FK_BEAR_BEAR_TYPE">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>30302874-3EC2-9EAD-52C6-B7AC0CB32271</importedID>
+<referredTableLongName>ADMIN.BEAR_TYPE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D1C43A1F-0C92-D7A8-323B-A578D67DAC97</referredTableID>
+<keyObject>1265FE99-E95E-6F99-3DF0-F39E0BB00246</keyObject>
+<referredKeyID>1265FE99-E95E-6F99-3DF0-F39E0BB00246</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>BEAR_TYPE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

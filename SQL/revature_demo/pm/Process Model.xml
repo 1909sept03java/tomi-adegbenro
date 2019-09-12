@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="871B93F1-0DD5-AFCC-B8ED-1C740DD7DD5A">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:18 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

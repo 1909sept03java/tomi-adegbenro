@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="ADMIN" directorySegmentName="seg_0" id="B41491F1-BC98-F853-B0B5-2D36306A406C">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:30 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<importedID>0CB37798-8424-2B7D-4621-AA1C155F3FB1</importedID>
+</SchemaObject>

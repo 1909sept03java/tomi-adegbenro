@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="revature_demo" id="74AEFBEB-E1B6-9ED9-85F0-F1544F9F9F5C" version="3.5">
+<createdBy>tomia</createdBy>
+<createdTime>2019-09-12 17:17:18 UTC</createdTime>
+<ownerDesignName>revature_demo</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>74AEFBEB-E1B6-9ED9-85F0-F1544F9F9F5C</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="CDB925F0-F3D4-20D5-1336-698AB9484E88">
+<designStoragePath>C:\</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
