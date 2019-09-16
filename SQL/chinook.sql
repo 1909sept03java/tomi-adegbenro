@@ -470,14 +470,50 @@ FOR EACH ROW
 DECLARE
 
 BEGIN
-    UPDATE EMPLOYEE SET :REPORTSTO = 1;
+    --UPDATE EMPLOYEE SET :REPORTSTO = 1;
     --SELECT SQ_BEAR_TYPE_PK.NEXTVAL INTO :NEW.BEAR_TYPE_ID FROM DUAL;
+    DBMS_OUTPUT.PUT_LINE('NEW EMPLOYEE CREATED');
 END;
 /
 
 --INITIATE TRIGGER
-INSERT INTO EMPLOYEE (EMPLOYEEID, FIRSTNAME, LASTNAME, HIREDATE) VALUES (20, 'Jim', 'Brownsville', TO_DATE('10-21-2005', 'MM-DD-YYYY');
+INSERT INTO EMPLOYEE (EMPLOYEEID, FIRSTNAME, LASTNAME, HIREDATE) VALUES (21, 'Kim', 'Brownsville', TO_DATE('10-21-2005', 'MM-DD-YYYY'));
 /
+/*******************************************************************************
+ 6.2 TRIGGERS - AFTER UPDATE TRIGGER*
+********************************************************************************/
+CREATE OR REPLACE TRIGGER TR_UPDATE_ALBUM
+AFTER UPDATE ON ALBUM  
+FOR EACH ROW
+DECLARE
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('ALBUM RECORD WAS UPDATED');
+END;
+/
+
+--INITIATE TRIGGER
+UPDATE ALBUM SET TITLE = 'Pop!' WHERE ALBUMID = 236;
+--INSERT INTO EMPLOYEE (EMPLOYEEID, FIRSTNAME, LASTNAME, HIREDATE) VALUES (21, 'Kim', 'Brownsville', TO_DATE('10-21-2005', 'MM-DD-YYYY'));
+/
+/*******************************************************************************
+ 6.3 TRIGGERS - AFTER UPDATE TRIGGER*
+********************************************************************************/
+CREATE OR REPLACE TRIGGER TR_DELETE_CUSTOMER
+AFTER DELETE ON CUSTOMER  
+FOR EACH ROW
+DECLARE
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('CUSTOMER RECORD HAS BEEN DELETED');
+END;
+/
+
+--INITIATE TRIGGER
+DELETE CUSTOMER WHERE CUSTOMERID = 52;
+--INSERT INTO EMPLOYEE (EMPLOYEEID, FIRSTNAME, LASTNAME, HIREDATE) VALUES (21, 'Kim', 'Brownsville', TO_DATE('10-21-2005', 'MM-DD-YYYY'));
+/
+
 /*******************************************************************************
  7. JOINS
 ********************************************************************************/
