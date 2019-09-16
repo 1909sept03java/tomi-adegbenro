@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,9 @@ public class CaveDAOImpl implements CaveDAO{
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
+	catch (IOException e){
+		e.printStackTrace();
+	}
 		return cl;
 	}
 
@@ -54,14 +58,37 @@ public class CaveDAOImpl implements CaveDAO{
 			}
 		}catch (SQLException e){
 			e.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
 		}
+		
 		return c;
 	}
 
 	@Override
 	public void createCave(Cave cave) {
 		// TODO Auto-generated method stub
-		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "INSERT INTO CAVE VALUES (?,?,?)";
+			//String sql2 = "SELECT * FROM CAVE WHERE CAVE_ID = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+			pstmt.setInt(1, cave.getId());
+			pstmt.setString(2, cave.getName());
+			pstmt.setInt(3, cave.getMaxBears());
+			pstmt.executeUpdate();
+			//ResultSet rs = pstmt2.executeQuery();
+			/*while(rs.next()) {
+				int caveId = rs.getInt("CAVE_ID");
+				String caveName = rs.getString("CAVE_NAME");
+				int maxBears = rs.getInt("MAX_BEARS");
+				Cave c = new Cave(caveId, caveName, maxBears);
+			}*/
+		}catch (SQLException e){
+			e.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override
