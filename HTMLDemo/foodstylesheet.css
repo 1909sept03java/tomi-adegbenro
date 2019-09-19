@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d9e4e0;
+    background-image: url("bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 2000px;
+
+
+}
+
+header{
+    align-content: stretch;
+    border-bottom: 3px ridge grey;
+    background: #9ab4ce
+}
+nav{
+    padding: 10px;
+}
+article{
+    background: #4bace2;
+    box-sizing: border-box;
+    padding: 10px;
+}
+aside{
+    background: #322abb;
+    box-sizing: border-box;
+    padding: 10px;
+    border-left: 5px ridge grey
+}
+#main-view{
+    display: flex;
+    flex-direction: row;
+
+}
+#top-container{ 
+    display: contents;
+    
+}
+table, th,td{
+    border: 1px solid black;
+}
