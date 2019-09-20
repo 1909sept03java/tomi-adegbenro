@@ -31,23 +31,18 @@ public class Registration {
 		try {
 			b = AccessOperations.registerUser(newUser, password); 
 			/*
-			 * DEbug*/
+			 * DEbug
 			 if(b==0) {
 				 System.out.println("B is not null");
 			 }else {
 				 System.out.println("B is empty");
-			 }
+			 }*/
 				 
 			}catch(Exception e) {
-				//System.out.println("Please re-enter your credentials: ");
-				//Login.getLoginCredentials();
-				//System.out.println("B is: "+b.getUserName());
 				e.printStackTrace();
-				//System.out.println("B is: "+b.getUserName());
 			}
-			//System.out.println("Congratulations "+b.getUserName()+" and welcome to JDBC Bank!");
-			//BankMenuConsole bm = new BankMenuConsole(b);
-			//bm.displayMenu();
+			System.out.println("You can now Login");
+			BankMainConsole.displayMainMenu();
 	}
 	
 

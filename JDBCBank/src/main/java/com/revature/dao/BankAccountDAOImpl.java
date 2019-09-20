@@ -55,8 +55,7 @@ public class BankAccountDAOImpl implements BankAccountDAO {
 			cs.setInt(2, usrId);
 			cs.setDouble(3, dep);
 			cs.execute();
-			//acctUpdated = cs.geto
-			//Now get updated Account for display
+			
 			String sql2 = "SELECT * FROM BANKACCOUNT WHERE ACCOUNT_USER = ? AND ACCOUNT_ID = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql2);
 			pstmt.setInt(1, usrId);

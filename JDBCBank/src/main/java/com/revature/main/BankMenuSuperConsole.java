@@ -10,32 +10,32 @@ import com.revature.dao.BankAccountDAO;
 import com.revature.dao.BankAccountDAOImpl;
 import com.revature.dao.BankUserDAO;
 import com.revature.dao.BankUserDAOImpl;
+import com.revature.dao.SuperUserDAO;
+import com.revature.dao.SuperUserDAOImpl;
 
-public class  BankMenuConsole {
+public class BankMenuSuperConsole {
 	
 	static BankUser bankUser;
-		
-	public BankMenuConsole(BankUser bankUser) {
-		super();
-		this.bankUser = bankUser;
-	}
-	public BankMenuConsole() {
+
+	public BankMenuSuperConsole() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public static void displayMenu() {
+
+	public BankMenuSuperConsole(BankUser bankUser) {
+		super();
+		this.bankUser = bankUser;
+	}
+	
+	public static void displaySuperMenu() {
 		int option = 0;
-		BankUserDAO bd =  new BankUserDAOImpl();
+		SuperUserDAO sd =  new SuperUserDAOImpl();
 		BankAccountDAO ad = new BankAccountDAOImpl();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Select Options \n"
-				+ "View Your Accounts: \t 1\n"
-				+ "Select An Account: \t 2\n"
-				+ "Add to Account: \t 3 \n"
-				+ "Withdraw from Account \t 4\n"
-				+ "Create a New Account \t 5\n"
-				+ "Delete Existing Account\t 6\n"
-				+ "Logout: \t \t 7");
+				+ "View Accounts: \t \t 1\n"
+				+ "Delete An Account: \t 2\n"
+				+ "Logout \t \t \t 3");
 		
 		
 		try{
@@ -45,7 +45,36 @@ public class  BankMenuConsole {
 				System.out.println("Try agian: \n"
 						+ "");
 			}
-			switch(option) {
+		switch(option) {
+		case 1:
+			ArrayList<BankUser> bankUsers = sd.viewUsers();
+			for (BankUser bu : bankUsers) {
+				System.out.println("User Id: "+bu.getUserId()+", User Name "+bu.getUserName()+".\n");
+			}
+			break;
+		case 2:
+			
+			Scanner acctScanner = new Scanner(System.in);
+			System.out.println("Please Enter Account id to delete: \n");
+			try {
+				int usrId = acctScanner.nextInt();
+				ArrayList<BankUser> updatedUsers = sd.deleteUser(usrId);
+				for (BankUser ua :updatedUsers) {
+					System.out.println("User Id: "+ua.getUserId()+", User Name "+ua.getUserName()+".\n");
+				}
+			}catch(InputMismatchException e) {
+					System.out.println("Try again: \n"
+							+ "");
+			}
+			break;
+		case 3:
+			System.out.println("You are now logged Out \n");
+			BankMainConsole.displayMainMenu();
+			
+			
+		}
+			
+			/*switch(option) {
 			case 1: 
 				System.out.println("List of Accounts for "+bankUser.getUserName());
 				//BankUserDAO bd =  new BankUserDAOImpl();
@@ -85,7 +114,7 @@ public class  BankMenuConsole {
 			case 4:
 				Scanner withdrawScanner = new Scanner(System.in);
 				Scanner acctWithdrawUpdateScanner = new Scanner(System.in);
-				System.out.println("Please Enter Amount to Withdraw: \n");
+				System.out.println("Please Enter Amount to Deposit: \n");
 				try {
 					double wd = withdrawScanner.nextDouble();
 					System.out.println("Please Bank Account Number: \n");
@@ -123,15 +152,13 @@ public class  BankMenuConsole {
 				BankMainConsole.displayMainMenu();
 				
 				
-			}
-			displayMenu();
+			}*/
+			displaySuperMenu();
 	}
-	
-		
-		//return 
 		
 }
 	
-
+	
+	
 
 
