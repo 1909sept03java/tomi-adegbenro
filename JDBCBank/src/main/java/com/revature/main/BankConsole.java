@@ -12,19 +12,30 @@ public class BankConsole {
 		int option=0;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to JDBC Bank \n"
-				+ "Please enter: \n"
-				+ "Login: 1\n"
-				+ "Register: 2");
+				+ "Please Enter Menu #: \n"
+				+ "User Login: \t 1\n"
+				+ "Register: \t 2");
 		try{
 		option= scanner.nextInt();
 		}
 		catch(InputMismatchException e) {
-			System.out.println("Try agian");
+			System.out.println("Try again");
+			//scanner.close();
+					
 		}
+		/*System.out.println("Please Enter Menu #: \n"
+				+ "User Login: \t 1\n"
+				+ "Register: \t 2");*/
+		
 		switch(option) {
 		case 1: 
 			Login.getLoginCredentials();
+			break;
+		case 2:
+			Registration.registerCredentials();
+			break;
 		}
+		
 		
 	}
 

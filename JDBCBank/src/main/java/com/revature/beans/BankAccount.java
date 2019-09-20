@@ -36,6 +36,21 @@ public class BankAccount {
 		this.balance = balance;
 		this.fBalance = fBalance;
 	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public double getfBalance() {
+		return fBalance;
+	}
+	public void setfBalance(double fBalance) {
+		this.fBalance = fBalance;
+	}
+	public void setAccountUser(int accountUser) {
+		this.accountUser = accountUser;
+	}
 	
 	
 	

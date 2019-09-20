@@ -24,6 +24,14 @@ public class BankUser {
 	}
 
 	
+	public int getSuperUser() {
+		return superUser;
+	}
+
+	public void setSuperUser(int superUser) {
+		this.superUser = superUser;
+	}
+
 	public BankUser(int userId, String userName, String password, int superUser) {
 		super();
 		this.userId = userId;
@@ -50,19 +58,5 @@ public class BankUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/*public boolean isRegistered() {
-		return registered;
-	}
-	public void setRegistered(boolean registered) {
-		this.registered = registered;
-	}
-	public boolean isLogOn() {
-		return logOn;
-	}
-	public void setLogOn(boolean logOn) {
-		this.logOn = logOn;
-	}*/
-	
-	
 
 }

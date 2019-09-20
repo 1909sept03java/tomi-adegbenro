@@ -1,6 +1,7 @@
 package com.revature.main;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,36 +13,11 @@ import com.revature.dao.BankUserDAO;
 import com.revature.util.ConnectionUtil;
 
 public class AccessOperations {
-	/*static void userLogin() {
-		String usr;
-		String pwd;
-		Scanner scanUsr = new Scanner();
-		Scanner scanPwd = new Scanner();
-		System.out.println("Please enter Username:");
-		try {
-			usr = scanUsr.nextLine();
-		}catch (Exception e) {
-			System.out.println("Try again");
-		}
-		System.out.println("Please enter Psssword:");
-		try {
-			pwd = scanUsr.nextLine();
-		}catch (Exception e) {
-			System.out.println("Try again");
-		}
-		
-		BankUser loginUser(usr, pwd);
-		*/
-	
-	//public class BankUserDAOImpl implements BankUserDAO{
 
 		public static BankUser loginUser(String usr, String pwd) {
-			// TODO Auto-generated method stub
 			BankUser b = null;
-			//try-with resources....resources included in the try args will be closed at the end of the 
-			//block works with  all AutoCloseable resources
 			try(Connection conn = ConnectionUtil.getConnection()){
-				String sql = "SELECT * FROM BANKUSER WHERE USER_NAME = ? AND PWORD = ?";
+				String sql = "SELECT * FROM BANKUSER WHERE USER_NAME = ? AND PASS = ?";
 				/*
 				 * Debug
 				 * System.out.println("SQl Statement is : "+sql);
@@ -58,7 +34,7 @@ public class AccessOperations {
 				if(rs.next()) {
 					int userId = rs.getInt("USER_ID");
 					String userName = rs.getString("USER_NAME");
-					String password = rs.getString("PWORD");
+					String password = rs.getString("PASS");
 					int superUser = rs.getInt("SUPER_USER");
 					//int maxBears = rs.getInt("MAX_BEARS");
 					b = new BankUser(userId, userName, password, superUser);
@@ -76,9 +52,60 @@ public class AccessOperations {
 			}
 			return b;
 		}
-
-	
-
+		
+		public static double registerUser(String usr, String pwd) {
+			//BankUser b = null;
+			double userCheck=0;
+			BankUser b = new BankUser();
+			CallableStatement cs = null;
+			try(Connection conn = ConnectionUtil.getConnection()){
+				String sql = "{call SP_CREATE_NEW_USER(?,?,?)}";
+				cs = conn.prepareCall(sql);
+				cs.setString(1, usr);
+				cs.setString(2, pwd);
+				cs.registerOutParameter(3,java.sql.Types.DECIMAL);
+				cs.execute();
+				userCheck = cs.getDouble(3);
+				if(userCheck == 0) {
+					System.out.println(" Congratulations!");
+				}
+				//This part of the code needs some work 
+				/*
+				String sql2 = "SELECT * FROM BANKUSER WHERE USER_NAME = ? AND PASS = ?";
+				PreparedStatement pstmt = conn.prepareStatement(sql2);
+				pstmt.setString(1, usr);
+				pstmt.setString(2, pwd);
+				
+				ResultSet rs2 = pstmt.executeQuery();
+				if(rs2.next()) {
+					System.out.println("RS RESULTS "+rs2.getInt("SUPER_USER"));
+					int usrId = rs2.getInt("USER_ID");
+					String usrName = rs2.getNString("USER_USER");
+					//Object usrName = rs2.getObject("USER_USER");
+					String passwd = rs2.getNString("PASS");
+					//Object passwd = rs2.getObject("PASS");
+					int sUser = rs2.getInt("SUPER_USER");
+					//b = new BankUser(usrId, usrName, passwd, sUser);
+					//String uName = usrName.toString();
+					//String pWord = passwd.toString();
+					b.setUserId(usrId);
+					b.setUserName(usrName);
+					//b.setUserName(uName);
+					b.setPassword(passwd);
+					//b.setPassword(pWord);
+					b.setSuperUser(sUser);
+					//debug
+					System.out.println("Got back:"+usrId+" "+usrName+" "+passwd);
+				}*/
+			}catch (SQLException e){
+				e.printStackTrace();
+			}catch (IOException e){
+				e.printStackTrace();
+			}
+			
+			return userCheck;
+		}
+				
 }
 
 

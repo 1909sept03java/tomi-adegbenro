@@ -64,10 +64,26 @@ function nfizzBuzzSimilar(nums1, words1) {
     for (var j in wordList)
         console.log(wordList[j]);
     
-    if(i!==j){
+    if(numIntList.length!==wordList.length){
         console.log("Mismatch in length of arrays")
     }else{
-        //work on fizz bzz algorithm
+        
+        for(a=1; a<100; a++){
+            var array = [];
+            for(var b in numIntList){
+                if(a%numIntList[b]===0){
+                    array.push(wordList[b]);
+                    //console.log(array.push(wordList[b]));
+                }
+            }
+            if(array.length!==0){
+                console.log(array.join());
+            }
+            else{
+                console.log(a);
+                
+            }
+        }
     }
 
     

@@ -9,6 +9,7 @@ import com.revature.beans.BankUser;
 public interface BankUserDAO {
 	
 	public ArrayList<BankAccount> viewMyAccounts(BankUser usr);
+	public ArrayList<BankAccount> deleteAccount(BankUser usr, int acctId);
 	//public BankUser loginUser(String usr, String pwd);
 	//public List<User> getUsers();
 	//public User getUser(int userId);
