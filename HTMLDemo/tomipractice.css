@@ -1,0 +1,36 @@
+div{
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #9c498ab7;
+}
+
+#p_one{
+    padding: 20px;
+    margin: 10px;
+    border: 4px solid #333777;
+    font: message-box;
+    font-style: oblique;
+}
+
+.center{
+    text-align: center;
+    color: #272d83d8
+}
+
+div.center{
+    text-align: center;
+    color: #aaaaaa
+}
+
+.large{
+    font-size: large
+}
+
+form{
+    padding: 0px;
+    margin: 20px;
+}
+
+fieldset{
+    border-bottom: none;
+}

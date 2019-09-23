@@ -7,6 +7,11 @@ import com.revature.dao.BankUserDAOImpl;
 import com.revature.beans.BankUser;
 import com.revature.main.AccessOperations;
 
+/*
+ * Project 0 - Banking Application Console
+ * by Tomi Adegbenro * 
+ */
+
 public class BankConsole {
 	public static void main(String[] args) {
 		
