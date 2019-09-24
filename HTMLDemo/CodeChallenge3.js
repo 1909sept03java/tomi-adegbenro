@@ -1,9 +1,13 @@
 window.onload = function () {
     document.getElementById("fetch").addEventListener("click", getUsersWithFetch);
+    document.getElementById("fetch25").addEventListener("click", getUsersWithFetch25);
 }
 let apiUrl = "https://randomuser.me/api/?results=25";
 let state = { first:'', gender: '' , phone:'', thumbnail:''};
-let p = "";
+let ul = document.getElementById('randomUser');
+let myTable = document.getElementById('myTable');
+let nUser = 0;
+var p = ""; //to caputure results from array
 
 let updateContent = function() {
     document.getElementById('thumbnail').src = state.thumbnail;
@@ -12,6 +16,14 @@ let updateContent = function() {
     document.getElementById('phone').innerText = state.phone;
 
 }
+
+function createEle(ele) {
+    return document.createElement(ele); 
+  }
+
+  function addToEle(ele1, ele2) {
+    return ele1.appendChild(ele2); 
+  }
 
 function getUsersWithFetch() {
     fetch(apiUrl, {method:"GET", headers:{"Accept":"application/json"}})
@@ -23,8 +35,7 @@ function getUsersWithFetch() {
         })
         // utilize unwrapped promise as a JS object
         .then((data) => {
-            console.log(data);
-            state.thumbnail = data.results[0].picture.thumbnail;
+            state.thumbnail = data.results[0].picture.medium;
             state.first = data.results[0].name.first;
             state.gender = data.results[0].gender;
             state.phone = data.results[0].phone;
@@ -38,7 +49,7 @@ function getUsersWithFetch() {
 }
 
 function getUsersWithFetch25() {
-    var p = "";
+    //var p = "";
     fetch(apiUrl, {method:"GET", headers:{"Accept":"application/json"}})
         //define behavior for when response returns
         .then((response) => {
@@ -49,18 +60,47 @@ function getUsersWithFetch25() {
         // utilize unwrapped promise as a JS object
         .then((data) => {
             console.log(data);
-            data.forEach(person => {
-                p =`<div class="well">
-                <span>${person.name.first}</span>
-                `
-                //state.thumbnail = data.results[0].picture.thumbnail;
-                //state.first = data.results[0].name.first;
-                //state.gender = data.results[0].gender;
-                //state.phone = data.results[0].phone;
-                //updateContent();
-            });
+            let users = data.results;
+            let sum =0;
+            let avgAge =0;
+            for(let i=0;i < users.length; i++){
+                //Summing Ages
+                sum = sum + users[i].dob.age;
+                //defining DIVs
+                let div = createEle('div');
+                div.setAttribute('class', 'card');
+                div.setAttribute('style', 'width: 18rem; background-color:aqua');
+                //Defining Images
+                let image = createEle('img');
+                image.setAttribute('height', '250');
+                let div2 = createEle('div');
+                div2.setAttribute('class-card', 'card');
+                div.setAttribute('style', 'width: 18rem; background-color:bisque');
+                let p = createEle('p');
+                let ul = createEle('ul');
+                let li1 = createEle('li');
+                let li2 = createEle('li');
+                let li3 = createEle('li');
+                image.src = users[i].picture.medium;
+                p.innerText = "Name: "+ users[i].name.first+" "+users[i].name.first;
+                li1.innerText = "Gender: "+users[i].gender;
+                li2.innerText = "Telephone: "+users[i].phone;
+                li3.innerText = "Location: "+users[i].location.city;
+                div.appendChild(image);
+                div.appendChild(div2);
+                div2.appendChild(p);
+                div2.appendChild(ul);
+                ul.appendChild(li1);
+                ul.appendChild(li2);
+                ul.appendChild(li3);
+                document.body.appendChild(div);
+            }
+            avgAge = sum / users.length;
+            document.getElementById('fetch25Header').innerText = "Average Age of Users is "+avgAge;
+
+            })
             
-        })
+       
         //what if there's a problem?
         .catch((error) => {
             alert('oh no :(');
