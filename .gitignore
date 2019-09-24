@@ -95,5 +95,7 @@ local.properties
 # Maven
 /target/
 
+##Servers Directory
+Servers/
 
 # End of https://www.gitignore.io/api/eclipse
