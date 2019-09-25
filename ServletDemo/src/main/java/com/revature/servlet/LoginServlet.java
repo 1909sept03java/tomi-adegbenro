@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.beans.Credentials;
+
 public class LoginServlet extends HttpServlet {
 
 	
@@ -25,5 +27,18 @@ public class LoginServlet extends HttpServlet {
 		// RequestDispatcher is used to perform a 'forward' 
 		// (pass the request to another resource without the client knowing)
 		req.getRequestDispatcher("Login.html").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		//grab credentials from the request - use getParameter from form data
+		/*String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		System.out.println(username);
+		System.out.println(password);*/
+		
+		Credentials creds = new Credentials();
+		creds.setUsername(req.getParameter("username"));
+		creds.setPassword(req.getParameter("password"));
 	}
 }

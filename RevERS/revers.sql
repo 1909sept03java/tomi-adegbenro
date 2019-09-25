@@ -1,0 +1,164 @@
+/*******************************************************************************
+   Revature Employee Reimbursement System Database - Version 1.4
+   Script:revers.sql
+   Description: database.
+   DB Server: Oracle
+   Author: Tomi Adegbenro
+   
+********************************************************************************/
+
+/*******************************************************************************
+   Drop database if it exists
+********************************************************************************/
+DROP USER revers CASCADE;
+
+
+/*******************************************************************************
+   Create database
+********************************************************************************/
+CREATE USER revers
+IDENTIFIED BY p4ssw0rd
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+QUOTA 10M ON users;
+
+GRANT connect to revers;
+GRANT resource to revers;
+GRANT create session TO revers;
+GRANT create table TO revers;
+GRANT create view TO revers;
+
+
+
+conn revers/p4ssw0rd
+
+DROP TABLE EMPLOYEE;
+DROP TABLE REQUEST;
+DROP TABLE RECEIPT;
+/
+
+/*******************************************************************************
+   Create Tables
+********************************************************************************/
+CREATE TABLE EMPLOYEE
+(
+    EMP_ID NUMBER NOT NULL,
+    F_NAME VARCHAR2(20) NOT NULL,
+    L_NAME VARCHAR2(20) NOT NULL,
+    UNAME VARCHAR2(20) NOT NULL,
+    PASS VARCHAR2(20) NOT NULL,
+    MGR NUMBER NOT NULL,
+    CONSTRAINT PK_EMP PRIMARY KEY  (EMP_ID)
+);
+
+CREATE TABLE REQUEST
+(
+    REQ_ID NUMBER NOT NULL,
+    TITLE VARCHAR2(20) NOT NULL,
+    SUMMARY VARCHAR2(20), 
+    REQ_EMP NUMBER NOT NULL,
+    AMOUNT NUMBER NOT NULL,
+    REQ_DATE DATE,
+    APPROVAL NUMBER,
+    APPROVAL_DATE DATE,
+    CONSTRAINT PK_REQUEST PRIMARY KEY  (REQ_ID)
+);
+
+CREATE TABLE RECEIPT
+(
+    RCT_ID NUMBER NOT NULL,
+    REQ_NUM NUMBER NOT NULL,
+    --IMG BLOB,
+    CONSTRAINT PK_RECEIPT PRIMARY KEY  (RCT_ID)
+);
+/
+
+--SET UP SEQUENCES TO PRODUCE PRIMARY KEYS 
+CREATE SEQUENCE SQ_EMP_PK
+START WITH 1
+INCREMENT BY 1;
+/
+
+CREATE SEQUENCE SQ_REQ_PK
+START WITH 1
+INCREMENT BY 1;
+/
+CREATE SEQUENCE SQ_RCT_PK
+START WITH 1
+INCREMENT BY 1;
+
+
+--TRIGGERS: CREATE "BEFORE" OR "AFTER TRIGGERS
+CREATE OR REPLACE TRIGGER TR_INSERT_EMPLOYEE
+BEFORE INSERT ON EMPLOYEE --SPECIFY OPERATION, BEFORE/AFTER, AND TABLE
+FOR EACH ROW
+BEGIN
+    SELECT SQ_EMP_PK.NEXTVAL INTO :NEW.EMP_ID FROM DUAL;
+END;
+/
+
+CREATE OR REPLACE TRIGGER TR_INSERT_REQUEST
+BEFORE INSERT ON REQUEST --SPECIFY OPERATION, BEFORE/AFTER, AND TABLE
+FOR EACH ROW
+BEGIN
+    SELECT SQ_REQ_PK.NEXTVAL INTO :NEW.REQ_ID FROM DUAL;
+END;
+/
+CREATE OR REPLACE TRIGGER TR_INSERT_RECEIPT
+BEFORE INSERT ON RECEIPT --SPECIFY OPERATION, BEFORE/AFTER, AND TABLE
+FOR EACH ROW
+BEGIN
+    SELECT SQ_RCT_PK.NEXTVAL INTO :NEW.RCT_ID FROM DUAL;
+END;
+/
+
+
+--INSERTING DUMMY DATA INTO EMPLOYEE
+INSERT ALL
+INTO EMPLOYEE (F_NAME, L_NAME, UNAME, PASS, MGR)
+VALUES('Julius', 'Caesar', 'jcaesar', 'p4ss', 2)
+INTO EMPLOYEE (F_NAME, L_NAME, UNAME, PASS, MGR)
+VALUES('Augustus', 'Caesar', 'acaesar', 'word', 2)
+SELECT * FROM DUAL;
+/
+--INSERTING DUMMY DATA INTO REQUEST
+INSERT ALL
+INTO REQUEST (TITLE, SUMMARY, REQ_EMP, AMOUNT, REQ_DATE)
+VALUES('Cabo Convention', 'Went to Cabo', 1, 450,TO_DATE('2019-01-08', 'yyyy-mm-dd'))
+INTO REQUEST (TITLE, SUMMARY, REQ_EMP, AMOUNT, REQ_DATE)
+VALUES('Sales Pitch', 'Pitched to Acme', 1, 40,TO_DATE('2019-09-18', 'yyyy-mm-dd'))
+INTO REQUEST (TITLE, SUMMARY, REQ_EMP, AMOUNT, REQ_DATE)
+VALUES('Sales Pitch', 'Pitched to Beta', 2, 60,TO_DATE('2019-09-21', 'yyyy-mm-dd'))
+SELECT * FROM DUAL;
+/
+
+--INSERTING DUMMY DATA INTO RECEIPT
+INSERT ALL
+INTO RECEIPT (REQ_NUM)
+VALUES(1)
+INTO RECEIPT (REQ_NUM)
+VALUES(2)
+INTO RECEIPT (REQ_NUM)
+VALUES(1)
+INTO RECEIPT (REQ_NUM)
+VALUES(3)
+SELECT * FROM DUAL;
+/
+
+--FOREIGN KEY CONSTRAINTS 
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT FK_MANAGER
+FOREIGN KEY (MGR) REFERENCES EMPLOYEE(EMP_ID)
+ON DELETE CASCADE;
+/
+ALTER TABLE REQUEST
+ADD CONSTRAINT FK_REQ_EMP
+FOREIGN KEY (REQ_EMP) REFERENCES EMPLOYEE(EMP_ID)
+ON DELETE CASCADE;
+/
+ALTER TABLE RECEIPT
+ADD CONSTRAINT FK_REQ_ID
+FOREIGN KEY (REQ_NUM) REFERENCES REQUEST(REQ_ID)
+ON DELETE CASCADE;
+/
+COMMIT;
