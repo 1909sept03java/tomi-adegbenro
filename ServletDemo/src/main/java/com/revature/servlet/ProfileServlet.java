@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ProfileServlet extends HttpServlet {
 
@@ -13,7 +14,25 @@ public class ProfileServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().write("welcome to your profile");
+		HttpSession session = req.getSession(false);
+		try {
+			if (session != null && session.getAttribute("userId")!= null) {
+				//resp.getWriter().write("welcome to your profile "+session.getAttribute("firstname")+" "+session.getAttribute("lastname"));
+				//resp.sendRedirect("Test.html");
+				//resp.sendRedirect("Test2.html");
+				req.getRequestDispatcher("Profile.html").forward(req, resp);
+				
+			}else {
+				resp.sendRedirect("login");
+			}
+		}catch (Exception e) {
+			resp.sendError(404);
+		}
+		
+		
+		
+		//previous basic example
+		//resp.getWriter().write("welcome to your profile");
 	}
 	
 	@Override
