@@ -3,6 +3,7 @@ package com.revature.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import com.revature.beans.Credentials;
 import com.revature.beans.Employee;
 import com.revature.service.AuthenticationService;
+
+@WebServlet("/login") //Using @WebServlet annotation instead of registering/mapping in web.xml
 
 public class LoginServlet extends HttpServlet {
 
@@ -38,9 +41,11 @@ public class LoginServlet extends HttpServlet {
 		Employee e = authService.authenticateUser(creds);
 		if (e != null) {
 			// they're real 
-			session.setAttribute("userId", u.getId());
-			session.setAttribute("firstname", u.getFirstname());
-			session.setAttribute("lastname", u.getLastname());
+			session.setAttribute("userId", e.getEmpId());
+			session.setAttribute("firstname", e.getFirstName());
+			session.setAttribute("lastname", e.getLastName());//continue from here
+			session.setAttribute("manager", e.getManager());
+			session.setAttribute("mgrRole", e.getMgrRole());
 			session.setAttribute("problem", null);
 			// redirect to their profile
 			resp.sendRedirect("profile");

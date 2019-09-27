@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,7 +28,7 @@ public class DepartmentDAOImplementation implements DepartmentDAO{
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM EMPLOYEES";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery(sql);
+			ResultSet rs = pstmt.executeQuery(sql);
 			while(rs.next()) {
 				int employeeId = rs.getInt("EMPLOYEE_ID");
 				String firstName = rs.getString("EMP_FIRSTNAME");

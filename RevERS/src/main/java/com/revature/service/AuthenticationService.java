@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import com.revature.beans.Credentials;
 import com.revature.beans.Employee;
-import com.revature.util.ConnectionUtil;
+import com.revature.service.ConnectionService;
 
 public class AuthenticationService {
 	
@@ -25,7 +25,7 @@ public class AuthenticationService {
 	}*/
 	
 	//trying what i did before
-	public static Employee authenticateUser(Credentials creds) {
+	public Employee authenticateUser(Credentials creds) {
 		Employee emp = null;
 		try(Connection conn = ConnectionService.getConnection()){
 			String sql = "SELECT EMPLOYEE.EMP_ID, EMPLOYEE.F_NAME, EMPLOYEE.L_NAME, EMPLOYEE.MGR, EMPLOYEE.M_ROLE FROM EMPLOYEE INNER JOIN CREDENTIALS ON EMPLOYEE.EMP_ID = CREDENTIALS.EMP_NUM WHERE CREDENTIALS.UNAME = ? AND CREDENTIALS.PASS = ?";
@@ -57,6 +57,7 @@ public class AuthenticationService {
 		}catch(NullPointerException e) {
 			e.printStackTrace();
 		}
+		//System.out.println(emp.getFirstName());
 		return emp;
 	}
 
