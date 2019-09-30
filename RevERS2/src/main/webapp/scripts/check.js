@@ -2,6 +2,7 @@ let user = {};
 
 window.onload = function() {
 	populateUser();
+	document.getElementById("getManager").addEventListener("click", getManager);
 }
 
 function populateUser() {
@@ -19,6 +20,25 @@ function populateUser() {
 			user = data;
 			document.getElementById('firstname').innerText = "firstname: "+data.firstName;
 			document.getElementById('lastname').innerText = "lastname: "+user.lastName;
+		}
+	})
+}
+
+function getManger() {
+	// send a GET request to SessionServlet to obtain session information
+	fetch("http://localhost:8082/RevERS2/manager").then(function(response) {
+		return response.json(); // parsing json data in the response as a JS object
+	}).then(function(data) {
+		console.log(data);
+		// check whether there is a valid session
+		//define behavior for when there is no valid user
+		if(data.session === null) {
+			//window.location = "http://localhost:8082/RevERS2/login"
+		} else {
+			//define behavior for when a user is returned
+			mgr = data;
+			document.getElementById('mgrFirstname').innerText = "firstname: "+data.firstName;
+			document.getElementById('mgrLastname').innerText = "lastname: "+user.lastName;
 		}
 	})
 }

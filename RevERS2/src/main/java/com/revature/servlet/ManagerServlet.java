@@ -35,7 +35,7 @@ public class ManagerServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession(false);
-		resp.getWriter().write("the session still is "+session.getAttribute("firstname")+" "+session.getAttribute("lastname")+"\n");
+		//resp.getWriter().write("the session still is "+session.getAttribute("firstname")+" "+session.getAttribute("lastname")+"\n");
 		//resp.getWriter().write("Also, "+session.getAttributeNames()+" , "+ session.getClass());
 		
 		emp.setEmpId((Integer) session.getAttribute("userId"));
