@@ -11,6 +11,8 @@ import com.revature.beans.Request;
 
 public interface EmployeeDAO {
 	public Employee getMyManager(Employee emp);
+	public ArrayList<Employee> getMyTeam (Employee emp);
+	public Employee getMyTeamById(Employee emp, int member);
 	//public ArrayList<Request> getRequest(Employee emp, int action);
 	
 	

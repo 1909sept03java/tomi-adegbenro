@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.ArrayList;
+
 import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
@@ -16,6 +18,13 @@ public class EmployeeService {
 		return emp.getMyManager(e);
 	}
 	
+	public ArrayList<Employee> getMyTeam(Employee e){
+		return emp.getMyTeam(e);
+	}
+	
+	public Employee getMyTeamById(Employee e, int m){
+		return emp.getMyTeamById(e, m);
+	}
 	
 
 }

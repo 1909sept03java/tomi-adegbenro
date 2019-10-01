@@ -36,4 +36,13 @@
   	<servlet-name>ManagerServlet</servlet-name>
   	<url-pattern>/manager</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>TeamServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.TeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TeamServlet</servlet-name>
+  	<url-pattern>/myTeam</url-pattern>
+  </servlet-mapping>
 </web-app>
