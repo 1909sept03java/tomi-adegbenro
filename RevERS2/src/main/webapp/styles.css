@@ -312,6 +312,31 @@ html {
     width: 100%;
   }
   
+  /* Result tables*/
+  .table {
+	display: table;
+	width: auto;
+}
+
+.row, .header-row {
+	display: table-row;
+	border-bottom: 1px dotted #333777;
+}
+
+.header-row {
+	font-weight: bold;
+}
+
+.cell {
+	display: table-cell;
+	width: 125px;
+	border-bottom: 1px dotted #333777;
+}
+
+.header-row .cell {
+	background-color: orange;
+	border-bottom: 2px solid blue;
+}
   
   
   /* OTHERS */

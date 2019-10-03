@@ -8,26 +8,48 @@
 	<title>RevERS Reimbursements</title>
 </head>
 <body>
-	<div class="display">
+	<div class="display" style="overflow: hidden;">
 		<h1>WELCOME</h1>
+		<div class="display" style="float:left;">
+			<br>
+			<p id="firstname"></p>
+			<br>
+			<p id="lastname"></p>
+		</div>
+		<!--Manager's Section-->
+		<div id= "mRole" style="margin-left: 400px;"></div>
 	</div>
-	<div class="display">
-		<br>
-		<p id="firstname"></p>
-		<br>
-		<p id="lastname"></p>
+	
+	<div="display" style="overflow: hidden;">
+		<div class="display" style="float:left;">
+			
+			<form action="statRequest" method="get">
+				<fieldset>
+					<legend>Reimbursement Views</legend>
+					<p>
+						<label>Select list</label>
+						<select name ="options" id ="myList">
+							<option value = "1">PENDING</option>
+							<option value = "2">APPROVED</option>
+							<option value = "3">REJECTED</option>
+						</select>
+					</p>
+				</fieldset>
+				<input type="submit" id ="reqs" value="view Requests"/>
+			</form>
+		</div>
+		<!-- Request Displays here-->
+		<div id= "reqView" style="margin-left: 400px;"></div>
 	</div>
-	<div>
-	<form action="viewRequest" method="get">
-		<input type="submit" value="viewRequests"/>
-		<!-- <input name = "requestType" type="submit" value="viewMyRequests"/> -->
-	</form>
+	
+
 	
 	</div>
 	<form action="logout" method="get">
 		<input type="submit" value="logout"/>
 	</form>
 </body>
-<script src="scripts/check.js"></script>
+<!--<script src="scripts/check.js"></script>-->
+<script src="scripts/requests.js"></script>
 
 </html>

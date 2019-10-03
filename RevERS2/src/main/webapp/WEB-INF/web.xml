@@ -28,6 +28,24 @@
   	<url-pattern>/request</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>StatusRequestServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.StatusRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StatusRequestServlet</servlet-name>
+  	<url-pattern>/statRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>MgrRequestServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.MgrRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MgrRequestServlet</servlet-name>
+  	<url-pattern>/mgrRequest</url-pattern>
+  </servlet-mapping>
+  
    <servlet>
   	<servlet-name>ManagerServlet</servlet-name>
   	<servlet-class>com.revature.servlet.ManagerServlet</servlet-class>
@@ -44,5 +62,14 @@
   <servlet-mapping>
   	<servlet-name>TeamServlet</servlet-name>
   	<url-pattern>/myTeam</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ReimbursementServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.ReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ReimbursementServlet</servlet-name>
+  	<url-pattern>/reimbursements</url-pattern>
   </servlet-mapping>
 </web-app>

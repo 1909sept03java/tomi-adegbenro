@@ -51,29 +51,6 @@ public class ManagerServlet extends HttpServlet{
 			resp.sendError(404);
 		}
 		
-		/*// check whether there is an id provided in the query string
-		//String idString = req.getParameter("Manager");
-		//if (idString != null) {
-			// try and find the desired bear
-			try {
-					emp = om.readValue(req.getReader(), valueType)
-				
-				
-					int id = Integer.parseInt(idString);
-				String bearJSON = om.writeValueAsString(bearService.getBearById(id));
-				// if ObjectMapper gets a null value, it will be converted to a String "null"
-				if (!bearJSON.equals("null")) {
-					resp.getWriter().write(bearJSON);
-				} else {
-					resp.sendError(404);
-				}
-			} catch (Exception e) {
-				resp.sendError(400); // general bad request
-			}
-		} else {
-			// otherwise return all bears
-			resp.getWriter().write(om.writeValueAsString(bearService.getBears()));
-		}*/
 	}
 
 

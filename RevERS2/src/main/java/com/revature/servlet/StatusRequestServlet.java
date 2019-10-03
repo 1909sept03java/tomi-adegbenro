@@ -1,5 +1,6 @@
 package com.revature.servlet;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,11 +18,11 @@ import com.revature.beans.Employee;
 import com.revature.beans.Request;
 import com.revature.service.RequestService;
 
-//@WebServlet("/viewRequests") 
-public class RequestServlet extends HttpServlet{
+
+public class StatusRequestServlet extends HttpServlet{
 
 	
-	private static final long serialVersionUID = 8070115056439532175L;
+	private static final long serialVersionUID = 8010355942305074286L;
 	
 	private RequestService reqService;
 	private Request req;
@@ -31,7 +32,7 @@ public class RequestServlet extends HttpServlet{
 	//Using Object Mapper to convert objects to JSON formmated data
 	private ObjectMapper om;
 	
-	public RequestServlet() {
+	public StatusRequestServlet() {
 		reqService = new RequestService();
 		req = new Request();
 		reqList = new ArrayList<Request>();
@@ -50,23 +51,31 @@ public class RequestServlet extends HttpServlet{
 		emp.setManager((Integer) session.getAttribute("manager"));
 		emp.setMgrRole((Integer) session.getAttribute("mgrRole"));
 		//Input from webpage
-		String idString = req.getParameter("requestId");
-		
+		String idString = req.getParameter("options");
+		//resp.getWriter().write("Req value is : "+req+"\n");
+		//om.writeValueAsString("idString value is : "+idString);
 		try {
+			//String idString = req.getParameter("options");
 			if (idString != null) {
-				int id = Integer.parseInt(idString);
-				String requestJSON = om.writeValueAsString(reqService.getMyRequestById(emp, id));//, memberId));
+				int stat = Integer.parseInt(idString);
+				String requestJSON = om.writeValueAsString(reqService.getMyRequestByStatus(emp, stat));//, memberId));
+				session.setAttribute("results", requestJSON);
+				resp.sendRedirect("Results.html");
+				//resp.getWriter().write("Before if: "+stat+"\n"+ "Emp value: "+emp.getFirstName());
 				if (!requestJSON.equals("null")) {
 					resp.getWriter().write(requestJSON);
 				} else {
 					//place holder
 					resp.sendError(404);
+					//resp.getWriter().write("We find ourselves in the land of 404: "+req.getParameter("options"));	
 				}
 			}else {
 				resp.getWriter().write(om.writeValueAsString(reqService.getMyRequests(emp)));
 			}
 		}catch (Exception e) {
 			resp.sendError(404);
+			//e.printStackTrace();
+		
 		}
 		
 		
@@ -82,5 +91,6 @@ public class RequestServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
+
 
 }

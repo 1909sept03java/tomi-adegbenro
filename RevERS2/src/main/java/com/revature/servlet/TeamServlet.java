@@ -46,7 +46,7 @@ public class TeamServlet extends HttpServlet{
 		emp.setLastName((String) session.getAttribute("lastname"));
 		emp.setManager((Integer) session.getAttribute("manager"));
 		emp.setMgrRole((Integer) session.getAttribute("mgrRole"));
-		
+		//Input from webpage
 		String idString = req.getParameter("memberId");
 		if (idString != null) {
 			try {
