@@ -1,0 +1,5 @@
+ec2-34-220-75-40.us-west-2.compute.amazonaws.com
+
+Jenkins details
+username:tadegbenro
+password p4ssJenkin5

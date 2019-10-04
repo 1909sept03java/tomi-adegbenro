@@ -60,7 +60,8 @@ function managerFunctions() {
 			p0.innerText = "Manager Menu";
 			but0.setAttribute('type', 'button');
 			but0.setAttribute('id', 'viewAllEmp');
-			but0.innerText = "View All Employees";
+			but0.setAttribute('onclick')
+			but0.innerText = "Resolve Reimbursements";
 			let div1 = createEle('div');
 			let form0 = createEle('form');
 			form0.setAttribute('action', 'myTeam');
@@ -74,6 +75,17 @@ function managerFunctions() {
 			input1.setAttribute('name', 'myTeam');
 			input1.setAttribute('value', 'View Team');
 
+			let div2 = createEle('div');
+			let form1 = createEle('form');
+			form1.setAttribute('action', 'reimbursements');
+			form1.setAttribute('method', 'GET');
+			let fieldset1 = createEle('fieldset');
+			let input2 = createEle('input');
+			input1.setAttribute('type', 'submit');
+			input1.setAttribute('name', 'reimbursements');
+			input1.setAttribute('value', 'Resolve Requests');
+
+
 
 			//Build Element Tree
 			//div0.appendChild(but0);
@@ -85,7 +97,12 @@ function managerFunctions() {
 			addToEle(form0, fieldset0);
 			addToEle(fieldset0,input0);
 			addToEle(form0, input1);
+
+			addToEle(div1, form1);
+			addToEle(form1, fieldset1);
+			addToEle(fieldset1, input2);
 			document.getElementById("mRole").appendChild(div0);
+			document.getElementById("mRole").appendChild(div1);
 		}else{
 			console.log(false);
 		}
