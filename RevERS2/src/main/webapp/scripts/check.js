@@ -54,15 +54,16 @@ function managerFunctions() {
 			//Defining Manager Console
 			let div0 = createEle('div');
 			div0.setAttribute('class', 'card');
-			div0.setAttribute('style', 'width: 18rem; background-color:aqua');
+			div0.setAttribute('style', 'width: 24rem; background-color:aqua');
 			let but0 = createEle('button');
 			let p0 = createEle('p');
 			p0.innerText = "Manager Menu";
 			but0.setAttribute('type', 'button');
 			but0.setAttribute('id', 'viewAllEmp');
-			but0.setAttribute('onclick')
-			but0.innerText = "Resolve Reimbursements";
+			//but0.setAttribute('onclick')
+			but0.innerText = "Resolve Requests";
 			let div1 = createEle('div');
+			div1.setAttribute('style', 'background-color:aqua');
 			let form0 = createEle('form');
 			form0.setAttribute('action', 'myTeam');
 			form0.setAttribute('method', 'GET');
@@ -81,28 +82,30 @@ function managerFunctions() {
 			form1.setAttribute('method', 'GET');
 			let fieldset1 = createEle('fieldset');
 			let input2 = createEle('input');
-			input1.setAttribute('type', 'submit');
-			input1.setAttribute('name', 'reimbursements');
-			input1.setAttribute('value', 'Resolve Requests');
+			input2.setAttribute('type', 'submit');
+			input2.setAttribute('name', 'reimbursements');
+			input2.setAttribute('value', 'Resolve Requests');
 
 
 
 			//Build Element Tree
-			//div0.appendChild(but0);
+			
 			addToEle(div0, p0);
-			//div0.appendChild(header0);
+			
 			addToEle(div0, but0);
 			addToEle(div0,div1);
+			addToEle(div0,div2);
+
 			addToEle(div1, form0);
 			addToEle(form0, fieldset0);
 			addToEle(fieldset0,input0);
 			addToEle(form0, input1);
 
-			addToEle(div1, form1);
+			addToEle(div2, form1);
 			addToEle(form1, fieldset1);
 			addToEle(fieldset1, input2);
 			document.getElementById("mRole").appendChild(div0);
-			document.getElementById("mRole").appendChild(div1);
+			//document.getElementById("mRole").appendChild(div1);
 		}else{
 			console.log(false);
 		}

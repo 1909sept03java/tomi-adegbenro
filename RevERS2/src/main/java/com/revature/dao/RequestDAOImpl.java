@@ -235,13 +235,13 @@ public class RequestDAOImpl implements RequestDAO{
 		return true;
 	}
 	
-	public boolean resolveRequest(Employee mgr, int emp_Id, int stat) {
+	public boolean resolveRequest(Employee mgr, int req_Id, int stat) {
 		int mgr_id = mgr.getEmpId();
 		CallableStatement cs = null;
 		try (Connection conn = ConnectionService.getConnection()){
 			String sql = "{call SP_RESOLVE_REQUEST(?,?)}";
 			cs = conn.prepareCall(sql);
-			cs.setInt(1, emp_Id);
+			cs.setInt(1, req_Id);
 			cs.setInt(2, stat);
 			cs.execute();
 			

@@ -40,9 +40,9 @@ public class ReqResolveServlet extends HttpServlet{
 		emp.setManager((Integer) session.getAttribute("manager"));
 		emp.setMgrRole((Integer) session.getAttribute("mgrRole"));
 		
-		int emp_Id = Integer.parseInt(req.getParameter("empId"));
-		int stat = Integer.parseInt(req.getParameter("status"));;
-		boolean success = reqService.resolveRequest(emp, emp_Id, stat);
+		int req_Id = Integer.parseInt(req.getParameter("reqId"));
+		int stat = Integer.parseInt(req.getParameter("resOptions"));;
+		boolean success = reqService.resolveRequest(emp, req_Id, stat);
 		if (success) {
 			resp.sendRedirect("reimbursements");
 		} else {

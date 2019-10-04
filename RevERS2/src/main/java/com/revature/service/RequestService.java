@@ -43,8 +43,8 @@ public class RequestService {
 		return request.createRequest(e, t, sm, a);
 	}
 	
-	public boolean resolveRequest(Employee m, int e, int s) {
-		return request.resolveRequest(m, e, s);
+	public boolean resolveRequest(Employee m, int r, int s) {
+		return request.resolveRequest(m, r, s);
 	}
 
 }

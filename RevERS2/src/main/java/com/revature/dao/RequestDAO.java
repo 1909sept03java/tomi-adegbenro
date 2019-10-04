@@ -14,6 +14,6 @@ public interface RequestDAO {
 	public ArrayList<Request> getMyTeamRequestsByStatus(Employee emp, int stat);
 	public ArrayList<Request> getMyTeamRequests(Employee emp);
 	public boolean createRequest(Employee emp, String title, String sum, float amt);
-	public boolean resolveRequest(Employee mgr, int emp_Id, int stat);
+	public boolean resolveRequest(Employee mgr, int req_Id, int stat);
 	
 }
