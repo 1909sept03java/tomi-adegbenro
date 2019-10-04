@@ -6,6 +6,7 @@ window.onload = function() {
 	//getAllEmployees();
 	document.getElementById("manager").addEventListener("click", getManager);
 	
+	
 
 }
 
@@ -71,6 +72,7 @@ function managerFunctions() {
 			let input1 = createEle('input');
 			input1.setAttribute('type', 'submit');
 			input1.setAttribute('name', 'myTeam');
+			input1.setAttribute('value', 'View Team');
 
 
 			//Build Element Tree
@@ -88,6 +90,7 @@ function managerFunctions() {
 			console.log(false);
 		}
 		document.getElementById("viewAllEmp").addEventListener("click", ()=>{console.log("Viewing all Employees")});
+		//document.getElementById("viewAllEmp").addEventListener("click", ()=>{console.log("Viewing all Employees")});
 		/*if(data.session === null) {
 			console.log("Thsi is empty")
 			
@@ -112,7 +115,7 @@ function getManager() {
 		return data; // parsing json data in the response as a JS object
 	})
 	.then((data) => {
-		console.log("hi");
+		
 		//document.getElementById('mgrFirstname').innerText = "firstname: "+mgrData.firstName;
 		// check whether there is a valid session
 		//define behavior for when there is no valid user

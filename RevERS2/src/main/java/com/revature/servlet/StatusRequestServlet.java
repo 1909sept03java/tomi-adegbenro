@@ -58,8 +58,12 @@ public class StatusRequestServlet extends HttpServlet{
 			//String idString = req.getParameter("options");
 			if (idString != null) {
 				int stat = Integer.parseInt(idString);
+				//reqList = reqService.getMyRequestByStatus(emp, stat);
 				String requestJSON = om.writeValueAsString(reqService.getMyRequestByStatus(emp, stat));//, memberId));
+				//requestJSON.toString().substring(1,requestJSON.toString().length()-1);
 				session.setAttribute("results", requestJSON);
+				//session.setAttribute("results", om.writeValue(reqService.getMyRequestByStatus(emp, stat)));
+				//session.setAttribute("results", om.writeValueAsString(requestJSON));
 				resp.sendRedirect("Results.html");
 				//resp.getWriter().write("Before if: "+stat+"\n"+ "Emp value: "+emp.getFirstName());
 				if (!requestJSON.equals("null")) {

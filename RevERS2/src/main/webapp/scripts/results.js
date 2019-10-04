@@ -2,8 +2,9 @@ let user = {};
 let ul = document.getElementById('start');
 
 window.onload = function () {
-    viewRequests();
+    viewReqResults();
     populateUser();
+    //viewEmpResults();
 }
 
 function populateUser() {
@@ -33,13 +34,13 @@ function createEle(ele) {
     return ele1.appendChild(ele2); 
  }
 
-function viewRequests(){
-    fetch("http://localhost:8082/RevERS2/results").then(function(response) {
+function viewReqResults(){
+    fetch("http://localhost:8082/RevERS2/reqResults").then(function(response) {
 		return response.json(); // parsing json data in the response as a JS object
 	}).then(function(data) {
         console.log(data);
-        
-        //for (let i = 0; i < data.length; i++) {
+                
+        //for (let i = 0; i < data.length; i++) {   
        data.forEach((obj) => {
             console.log(obj.reqId);
             let div0 = createEle('div');
@@ -49,6 +50,14 @@ function viewRequests(){
             id_cell.setAttribute('class', 'cell');
             id_cell.innerText = obj.reqId;
             addToEle(div0,id_cell);
+
+            let rD = obj.reqDate;
+            rD = Number(rD);
+            let rDate = new Date(rD);
+            let reqDate = createEle('div');
+            reqDate.setAttribute('class', 'cell');
+            reqDate.innerText = rDate;
+            addToEle(div0,reqDate);
                        
             let title = createEle('div');
             title.setAttribute('class', 'cell');
@@ -59,6 +68,66 @@ function viewRequests(){
             summary.setAttribute('class', 'cell');
             summary.innerText = obj.summary;
             addToEle(div0,summary);
+
+            let reqEmp = createEle('div');
+            reqEmp.setAttribute('class', 'cell');
+            reqEmp.innerText = obj.reqEmp;
+            addToEle(div0,reqEmp);
+
+            let amount = createEle('div');
+            amount.setAttribute('class', 'cell');
+            amount.innerText = obj.amount;
+            addToEle(div0,amount);
+
+            let status = createEle('div');
+            status.setAttribute('class', 'cell');
+            status.innerText = obj.status;
+            addToEle(div0,status);
+
+            let sD = obj.reqDate;
+            sD = Number(sD);
+            let sDate = new Date(sD);
+            let statusDate = createEle('div');
+            statusDate.setAttribute('class', 'cell');
+            statusDate.innerText = obj.sDate;
+            addToEle(div0,statusDate);
+
+            addToEle(ul, div0);
+        }
+        );
+            //var holder = "";
+            
+        
+            
+    })
+}
+
+function viewEmpResults(){
+    fetch("http://localhost:8082/RevERS2/empResults").then(function(response) {
+		return response.json(); // parsing json data in the response as a JS object
+	}).then(function(data) {
+        console.log(data);
+                
+        //for (let i = 0; i < data.length; i++) {
+       data.forEach((obj) => {
+            console.log(obj.reqId);
+            let div0 = createEle('div');
+            div0.setAttribute('class','row');
+
+            let id_cell = createEle('div');
+            id_cell.setAttribute('class', 'cell');
+            id_cell.innerText = obj.empId;
+            addToEle(div0,id_cell);
+                       
+            let firstName = createEle('div');
+            firstName.setAttribute('class', 'cell');
+            firstName.innerText = obj.firstName;    
+            addToEle(div0,firstName);
+            
+            let lastName = createEle('div');
+            lastName.setAttribute('class', 'cell');
+            lastName.innerText = obj.lastName;
+            addToEle(div0,lastName);
 
             addToEle(ul, div0);
         }

@@ -14,7 +14,7 @@ public class RequestService {
 		super();
 	}
 	
-	public Request getMyRequestById(Employee e, int reqId) {
+	public ArrayList<Request> getMyRequestById(Employee e, int reqId) {
 		return request.getMyRequestById(e, reqId);
 	}
 	
@@ -22,7 +22,7 @@ public class RequestService {
 		return request.getMyRequests(e);
 	}
 	
-	public Request getMyTeamRequestById(Employee e, int reqId) {
+	public ArrayList<Request> getMyTeamRequestById(Employee e, int reqId) {
 		return request.getMyTeamRequestById(e, reqId);
 		
 	}

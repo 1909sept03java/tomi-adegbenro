@@ -1,4 +1,4 @@
-package com.revature.servlet;
+	package com.revature.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,22 +48,38 @@ public class TeamServlet extends HttpServlet{
 		emp.setMgrRole((Integer) session.getAttribute("mgrRole"));
 		//Input from webpage
 		String idString = req.getParameter("memberId");
+		String teamMemberJSON;
+		String teamJSON="";
+		
+		if(idString == "") {
+			idString = null;
+		}
+		System.out.println("IdString is:"+idString);
+		teamJSON = om.writeValueAsString(empService.getMyTeam(emp));
 		if (idString != null) {
 			try {
 				int id = Integer.parseInt(idString);
-				String teamJSON = om.writeValueAsString(empService.getMyTeamById(emp, id));//, memberId));
+				teamMemberJSON = om.writeValueAsString(empService.getMyTeamById(emp, id));//, memberId));
 				
-				if (!teamJSON.equals("null")) {
-					resp.getWriter().write(om.writeValueAsString(teamJSON));
+				
+				if (!teamMemberJSON.equals("null")) {
+					resp.getWriter().write(om.writeValueAsString(teamMemberJSON));
+					session.setAttribute("empResults", teamMemberJSON);
+					resp.sendRedirect("Employees.html");
 					//resp.getWriter().write("Placeholder for getMyTeamById");
 				} else {
-					resp.sendError(404);
+					//resp.sendError(404);
+					resp.getWriter().write(om.writeValueAsString(empService.getMyTeam(emp)));
+					session.setAttribute("empResults", teamJSON);
+					resp.sendRedirect("Employees.html");
 				}
 			}catch (Exception e) {
+				e.printStackTrace();
 				resp.sendError(404);
 			}
 		}else {
-			resp.getWriter().write(om.writeValueAsString(empService.getMyTeam(emp)));
+			session.setAttribute("empResults", teamJSON);
+			resp.sendRedirect("Employees.html");
 		}
 		
 	}

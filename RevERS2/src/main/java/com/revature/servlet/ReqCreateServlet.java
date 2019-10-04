@@ -48,7 +48,7 @@ public class ReqCreateServlet extends HttpServlet{
 		float amount = Float.parseFloat(req.getParameter("reqAmount"));
 		boolean success = reqService.createRequest(emp, title, summary, amount);
 		if (success) {
-			resp.sendRedirect("profile");
+			resp.sendRedirect("reimbursements");
 		} else {
 			//place holder
 			resp.sendRedirect("reqCreate");

@@ -22,7 +22,7 @@ public class EmployeeService {
 		return emp.getMyTeam(e);
 	}
 	
-	public Employee getMyTeamById(Employee e, int m){
+	public ArrayList<Employee> getMyTeamById(Employee e, int m){
 		return emp.getMyTeamById(e, m);
 	}
 	

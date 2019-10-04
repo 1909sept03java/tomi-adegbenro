@@ -2,6 +2,7 @@ let user = {};
 
 window.onload = function () {
     document.getElementById("reqs").addEventListener("click", getViewRequests);
+    //document.getElementById("reqCreate").addEventListener("click", getViewRequests);
     populateUser();
 }
 

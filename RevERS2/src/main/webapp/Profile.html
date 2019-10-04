@@ -13,36 +13,38 @@
 		<div class="display" style="float:left;">
 			<br>
 			<p id="firstname"></p>
-			<br>
+			
 			<p id="lastname"></p>
+			<div>
+					<button type="button" id="manager">Manager Info</button>
+					<div class = "display">
+						<br>
+						<p id="mgrFirstname"></p>
+						<p id="mgrLastname"></p>
+					</div>
+					
+			</div>
+			<div>
+				
+				<form action="reimbursements" method="get">
+					<input type="submit" value="reimbursements"/>
+				</form>
+				</div>
+				<form action="logout" method="get">
+					<input type="submit" value="logout"/>
+				</form>
 		</div>
 		<!--Manager's Section-->
 		<div id= "mRole" style="margin-left: 400px;"></div>
 	</div>
 	
 	<div>
-		<button type="button" id="manager">Who's My Manager?</button>
-		<!-- <form action="manager" method="get"> -->
-		<!-- <input name = "manager" type="submit" value="manager"/> -->
-		<!-- ></form> -->
-		<div class = "display">
-			<br>
-			<p id="mgrFirstname"></p>
-			<br>
-			<p id="mgrLastname"></p>
-		</div>
-	
+		
 	
 	</div>
-	<div>
 	
-	<form action="reimbursements" method="get">
-		<input type="submit" value="reimbursements"/>
-	</form>
-	</div>
-	<form action="logout" method="get">
-		<input type="submit" value="logout"/>
-	</form>
+	
+	
 </body>
 <script src="scripts/check.js"></script>
 

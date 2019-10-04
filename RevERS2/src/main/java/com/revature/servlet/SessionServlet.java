@@ -29,8 +29,8 @@ public class SessionServlet extends HttpServlet{
 			int manager = Integer.parseInt(session.getAttribute("manager").toString());
 			int mgrRole = Integer.parseInt(session.getAttribute("mgrRole").toString());
 			Employee emp = new Employee(empId, firstname, lastname, manager, mgrRole);
-			
-			resp.getWriter().write((new ObjectMapper()).writeValueAsString(emp));
+			//Integer six = 6;
+			resp.getWriter().write((new ObjectMapper()).writeValueAsString(emp));// + (new ObjectMapper()).writeValueAsString(six));
 		}catch (Exception e) {
 			e.printStackTrace();
 			resp.getWriter().write("{\"session\":null}");

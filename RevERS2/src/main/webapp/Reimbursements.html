@@ -40,6 +40,17 @@
 		</div>
 		<!-- Request Displays here-->
 		<div id= "reqView" style="margin-left: 400px;"></div>
+		<form action="reqCreate" method="POST">
+			<fieldset>
+				<legend>New Reimbursement Request</legend>
+				<input required autocomplete="off" type="text" name="reqTitle" placeholder="Enter Request Title"><br>
+				<input required autocomplete="off" type="text" name="reqSummary" placeholder="Provide Brief Summary"><br>
+				<input required autocomplete="off" type="text" name="reqAmount" placeholder="Enter Amount(e.g 30) name"><br>
+				<input type="submit" id ="reqCreate" value="Add"/>
+			</fieldset>
+		</form>
+
+		
 	</div>
 	
 

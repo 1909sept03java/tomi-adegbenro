@@ -67,9 +67,10 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		return (ArrayList<Employee>) myTeam;
 	}
 	
-	public Employee getMyTeamById(Employee emp, int member) {
+	public ArrayList<Employee> getMyTeamById(Employee emp, int member) {
 		Employee myTeamById = new Employee();
 		int emp_Id = emp.getEmpId();
+		ArrayList<Employee> myTmById = new ArrayList<Employee>();
 		
 		try (Connection conn = ConnectionService.getConnection()){
 			String sql = "SELECT * FROM EMPLOYEE WHERE MGR = ? AND EMP_ID =?";
@@ -84,6 +85,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 				int manager  = rs.getInt("MGR");
 				int mgrRole  = rs.getInt("M_ROLE");
 				myTeamById = new Employee(empId, firstName, lastName, manager, mgrRole);
+				myTmById.add(myTeamById);
 			}
 			
 		}catch (SQLException e) {
@@ -91,7 +93,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return myTeamById;
+		return (ArrayList<Employee>) myTmById;
 		
 	}
 

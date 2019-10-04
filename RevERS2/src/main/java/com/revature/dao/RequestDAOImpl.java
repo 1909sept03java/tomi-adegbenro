@@ -16,9 +16,10 @@ import com.revature.service.ConnectionService;
 public class RequestDAOImpl implements RequestDAO{
 
 	@Override
-	public Request getMyRequestById(Employee emp, int req_Id) {
+	public ArrayList<Request> getMyRequestById(Employee emp, int req_Id) {
 		int emp_Id = emp.getEmpId();
 		Request myRequest = null;
+		ArrayList<Request> myReq = new ArrayList<Request>();
 				
 		try (Connection conn = ConnectionService.getConnection()){
 			String sql = "SELECT * FROM REQUEST WHERE REQ_EMP = ? AND REQ_ID = ?";
@@ -36,6 +37,7 @@ public class RequestDAOImpl implements RequestDAO{
 				int status = rs.getInt("STATUS");
 				Date statusDate = rs.getDate("STATUS_DATE");
 				myRequest = new Request(reqId, title, summary, reqEmp, amount, reqDate, status, statusDate);
+				myReq.add(myRequest);
 			}
 			
 		}catch (SQLException e) {
@@ -43,7 +45,7 @@ public class RequestDAOImpl implements RequestDAO{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return myRequest;
+		return (ArrayList<Request>)myReq;
 	}
 
 	@Override
@@ -77,9 +79,10 @@ public class RequestDAOImpl implements RequestDAO{
 	}
 
 	@Override
-	public Request getMyTeamRequestById(Employee emp, int req_Id) {
+	public ArrayList<Request> getMyTeamRequestById(Employee emp, int req_Id) {
 		int emp_Id = emp.getEmpId();
 		Request myTeamRequestById = null;
+		ArrayList<Request> myTeamReqById = new ArrayList<Request>();
 				
 		try (Connection conn = ConnectionService.getConnection()){
 			String sql = "SELECT REQ_ID, TITLE, SUMMARY, REQ_EMP, AMOUNT, "
@@ -100,6 +103,7 @@ public class RequestDAOImpl implements RequestDAO{
 				int status = rs.getInt("STATUS");
 				Date statusDate = rs.getDate("STATUS_DATE");
 				myTeamRequestById = new Request(reqId, title, summary, reqEmp, amount, reqDate, status, statusDate);
+				myTeamReqById.add(myTeamRequestById);
 			}
 			
 		}catch (SQLException e) {
@@ -107,7 +111,7 @@ public class RequestDAOImpl implements RequestDAO{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return myTeamRequestById;
+		return (ArrayList<Request>)myTeamReqById;
 	}
 
 	@Override
@@ -219,7 +223,7 @@ public class RequestDAOImpl implements RequestDAO{
 			cs = conn.prepareCall(sql);
 			cs.setInt(1, emp_id);
 			cs.setString(2, title);
-			cs.setString(3, title);
+			cs.setString(3, sum);
 			cs.setFloat(4, amt);
 			cs.execute();
 			
