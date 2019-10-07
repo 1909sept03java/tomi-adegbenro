@@ -1,0 +1,10 @@
+<div>
+    <input [(ngModel)] = "in2.pinput" placeholder="Enter Word!"><br>
+    <div>You entered: {{in2.pinput}}</div>
+   
+    <br>
+    <button (click) = "isPailindrome(in2.pinput)">Check for Palindrome</button>
+    
+    <br>
+    <p>It is {{pali}} that the word {{in2.input}} is a palindrome</p>
+</div>
