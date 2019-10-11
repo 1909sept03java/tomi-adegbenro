@@ -16,13 +16,13 @@ export class BubblesortComponent implements OnInit {
 
   
   //function invoked when event occurs
-  public bubbleSort(n: string): string{
+  public bubbleSort(n: string): void{
     let nArray = n.split(" ");
     let nLength = nArray.length;
 		//Looping through the array
 		for (let i=0; i < nLength-1; i++) {
 			for(let j=0; j < nLength-i-1; j++) {
-				if(nArray[j] > nArray[j+1]) {
+				if(Number(nArray[j]) > Number(nArray[j+1])) {
 					let temp = nArray[j];
 					nArray[j] = nArray[j+1];
 					nArray[j+1] = temp;
@@ -32,7 +32,7 @@ export class BubblesortComponent implements OnInit {
     //let result:string = nArray.toString();
     this.in.answer = nArray.toString();
     console.log(this.in.answer);
-		return this.in.answer;
+		//return this.in.answer;
   }
   
   //answer = this.bubbleSort(this.in.pinput);

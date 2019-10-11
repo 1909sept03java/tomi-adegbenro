@@ -10,26 +10,27 @@ export class PailindromeComponent implements OnInit {
   constructor() { }
 
   in2 = {
-    pinput: ''
+    pinput: '',
+    pali: true
   };
 
   //pinput = "";
   
   isPailindrome(word){
     let wordlength = word.length;
-    let pali = true;
+    this.in2.pali = true;
 
     for (let i = 0; i <wordlength/2; i++){
       if (word[i] !== word[wordlength - 1 - i]) { //if characters are not equal return false
-        pali = false;
-        console.log(pali);
-        return pali;
+        this.in2.pali = false;
+        console.log(this.in2.pali);
+        //return pali;
       }
 
     }
-    pali = true;
-    console.log(pali);
-    return pali;
+    //this.in2.pali = true;
+    console.log(this.in2.pali);
+    //return pali;
   }
 
   ngOnInit() {

@@ -6,5 +6,6 @@
     <button (click) = "isPailindrome(in2.pinput)">Check for Palindrome</button>
     
     <br>
-    <p>It is {{pali}} that the word {{in2.input}} is a palindrome</p>
+    <p *ngIf="in2.pali ===true; else elseBlock">It is {{in2.pali}} that the word {{in2.input}} is a palindrome</p>
+    <ng-template #elseBlock><br>Mehhnn!, thsi joint aint no PALINDROMW!!!???!!!</ng-template>
 </div>
