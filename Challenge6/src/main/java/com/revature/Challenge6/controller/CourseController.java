@@ -7,9 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.Challenge6.model.Course;
 import com.revature.Challenge6.service.CourseService;
+
+@RestController
+@RequestMapping(value = "/course")
 
 public class CourseController {
 	private CourseService courseService;

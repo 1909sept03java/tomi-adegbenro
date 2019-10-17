@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="FLASHCARD")
@@ -33,6 +36,7 @@ public class Flashcard {
 		this.topic = topic;
 	}
 	
+	@Min(0) // JSR303 validation
 	@Id // indicates that this is the primary key! ("persistent identity" of a Flashcard)
 	// generate values for this PK
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="flashcardSequence")
@@ -40,12 +44,15 @@ public class Flashcard {
 	@Column(name="FLASHCARD_ID")
 	private int id;
 	// don't strictly need these unless you want to customize your column definitions
+	@NotEmpty // JSR303 validation
 	@Column(name="QUESTION")
 	private String question;
+	@NotEmpty // JSR303 validation
 	@Column(name="ANSWER")
 	private String answer;
 	// establish a foreign key from Flashcard to Topic
 	// Topic has to be a correctly mapped entity for this to work
+	@NotNull // JSR303 validation
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="TOPIC_ID")
 	private Topic topic;
