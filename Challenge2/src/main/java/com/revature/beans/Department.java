@@ -1,4 +1,4 @@
-package com.revature.beans;
+ package com.revature.beans;
 
 public class Department {
 	int department_Id;

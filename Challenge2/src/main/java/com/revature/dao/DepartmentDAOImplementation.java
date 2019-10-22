@@ -26,14 +26,13 @@ public class DepartmentDAOImplementation implements DepartmentDAO{
 		// TODO Auto-generated method stub
 		List<Department> dl = new ArrayList<>();
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = "SELECT * FROM EMPLOYEES";
+			String sql = "SELECT * FROM DEPARTMENTS";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery(sql);
 			while(rs.next()) {
-				int employeeId = rs.getInt("EMPLOYEE_ID");
-				String firstName = rs.getString("EMP_FIRSTNAME");
-				String lastName = rs.getString("EMP_LASTNAME");
-				el.add(new Employee(employeeId, firstName, lastName));
+				int department_Id = rs.getInt("DEPARTMENT_ID");
+				String departmentName = rs.getString("DEPARTMENT_NAME");
+				dl.add(new Department(department_Id, departmentName));
 			}
 		}catch (SQLException e){
 			e.printStackTrace();
