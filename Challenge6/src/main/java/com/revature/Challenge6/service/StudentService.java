@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.Challenge6.model.Student;
 import com.revature.Challenge6.repository.StudentRepository;
 
 @Service
+@Transactional
 public class StudentService {
 	
 	private StudentRepository studentRepository;
@@ -29,7 +31,7 @@ public class StudentService {
 		this.studentRepository.save(s);
 	}
 	
-	public void deleteCourse(Student s) {
+	public void deleteStudent(Student s) {
 		this.studentRepository.delete(s);
 	}
 

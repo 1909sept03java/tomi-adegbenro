@@ -49,5 +49,21 @@ public class StudentController {
 		this.studentService.addStudent(student);
 		//ServletUriComponentsBuilder.fromCurrentRequest(); //.path("/{id}").buildAndExpand(this.studentService.getStudentById(id).).toUri();
 	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteStudent(@RequestBody Student student) {
+		ResponseEntity<String> resp = null;
+		try {
+			this.studentService.deleteStudent(student);
+			resp = new ResponseEntity<>("STUDENT DELETED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp = new ResponseEntity<>("FAILED TO DELETE STUDENT", HttpStatus.BAD_REQUEST);
+		}
+		
+		return resp;
+		
+	}
+	
 
 }

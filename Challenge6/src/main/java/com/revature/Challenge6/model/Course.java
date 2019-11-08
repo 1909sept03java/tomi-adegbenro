@@ -39,7 +39,7 @@ public class Course {
 	@Column(name="COURSE_NAME")
 	private String courseName;
 	// set up a unidirectional many-to-many relationship with Student
-	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER) //CascadeType.MERGE, FetchType.EAGER
 	@JoinTable(name="STUDENT_COURSE",
 			joinColumns = {@JoinColumn(name="COURSE_ID")},
 			inverseJoinColumns = {@JoinColumn(name="STUDENT_ID")})

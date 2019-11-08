@@ -4,18 +4,20 @@
     <h1 class="display-4">Welcome, {{student.firstname}}!</h1>
     <p class="lead">List of the currently enrolled courses</p>
     <hr class="my-4">
-    <table class="table ">
-    <thead class="thead-light">
+    <table class="table">
+    <thead class="thead-light" >
       <tr>
         <th scope="col">Course ID</th>
         <th scope="col">Name</th>
-        <th scope="col"></th>
+        <th scope="col">ENROLLED</th>
       </tr>
     </thead>
+    
     <tbody>
-      <tr >
-        
-      </tr>
+        <tr class="info" *ngFor= "let course of courseList">
+            <td>{{course.id}}</td>
+            <td>{{course.courseName}}</td>
+        </tr>
     </tbody>
   </table>
   </div>

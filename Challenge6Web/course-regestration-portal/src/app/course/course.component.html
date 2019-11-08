@@ -1,1 +1,39 @@
 <p>course works!</p>
+<table class="myStudentCourses">
+
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th></th>
+
+    </tr>
+    <tbody>
+        <tr class="info" *ngFor= "let course of myStudentCourses">
+            <td>{{course.id}}</td>
+            <td>{{course.name}}</td>
+        </tr>
+
+
+    </tbody>
+
+
+</table>
+<table class="allcourses">
+
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th></th>
+
+    </tr>
+    <tbody>
+        <tr class="info" *ngFor= "let course of myCourses">
+            <td>{{course.id}}</td>
+            <td>{{course.name}}</td>
+        </tr>
+
+
+    </tbody>
+
+
+</table>

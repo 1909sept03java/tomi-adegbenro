@@ -32,7 +32,7 @@ class NFactorialTest {
 	@Test
 	void test() {
 		
-		assertEquals(1, nfactorial.nFactorial(1));
+		assertEquals(720, nfactorial.nFactorial(6));
 		//fail("Not yet implemented");
 	}
 

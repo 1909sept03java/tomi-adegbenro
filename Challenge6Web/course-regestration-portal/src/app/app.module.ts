@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { CourseComponent } from './course/course.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentlsComponent } from './studentls/studentls.component';
 
 const appRoutes: Routes = [
   { path: 'student',      component: StudentComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     StudentComponent,
-    CourseComponent
+    CourseComponent,
+    StudentlsComponent
   ],
   imports: [
     BrowserModule,

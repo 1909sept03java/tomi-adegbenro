@@ -21,6 +21,8 @@ public class SessionServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession(false);
+		//Added for Angular Client
+		//setAccessControlHeaders(resp);
 		
 		try {
 			int empId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -41,6 +43,19 @@ public class SessionServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
+	//Additional functions for Angular client implmentation
+	
+	/*private void setAccessControlHeaders(HttpServletResponse resp) {
+	      resp.setHeader("Access-Control-Allow-Origin", "*");
+	      resp.setHeader("Access-Control-Allow-Methods", "GET, POST");
+	  }
+	//for Preflight
+	@Override
+	  protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
+	          throws ServletException, IOException {
+	      setAccessControlHeaders(resp);
+	      resp.setStatus(HttpServletResponse.SC_OK);
+	  }*/
 	
 	
 }

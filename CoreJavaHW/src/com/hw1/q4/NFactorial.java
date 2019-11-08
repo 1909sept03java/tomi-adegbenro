@@ -9,11 +9,13 @@ public class NFactorial {
 	
 	static int nFactorial(int val) {
 		//fact = val; //
-		
-		for(int i=1; i<=val; i++) {
-			val = val * i;
+		int nf = val;
+		for(int i=1; i<val; i++) {
+			//val = val * i;
+			nf = nf * (val - i);
+			System.out.println(nf);
 		}
-		return val;
+		return nf;
 				
 	}
 	

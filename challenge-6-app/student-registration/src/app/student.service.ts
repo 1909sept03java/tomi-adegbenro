@@ -8,7 +8,8 @@ import { identifierModuleUrl } from '@angular/compiler';
 export class StudentService {
 
   all_students = 'http://localhost:8084/student/all';
-  single_student = 'http://localhost:8084/student/'
+  single_student = 'http://localhost:8084/student/';
+  all_courses = 'http://localhost:8084/course/all';
 
   constructor(
     private httpClient: HttpClient//, private router: Router
@@ -23,6 +24,10 @@ export class StudentService {
     //this.currentMessage.subscribe(message => id = message);
     //let playUrl = 'http://localhost:8082/GamingMarketplace/player/' + id;
     return this.httpClient.get(this.single_student+id);
+  }
+
+  public fetchAllCourses() {
+    return this.httpClient.get(this.all_courses);
   }
 
 

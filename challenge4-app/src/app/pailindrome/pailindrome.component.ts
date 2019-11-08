@@ -24,13 +24,13 @@ export class PailindromeComponent implements OnInit {
       if (word[i] !== word[wordlength - 1 - i]) { //if characters are not equal return false
         this.in2.pali = false;
         console.log(this.in2.pali);
-        //return pali;
+        return this.in2.pali;
       }
 
     }
     //this.in2.pali = true;
     console.log(this.in2.pali);
-    //return pali;
+    return this.in2.pali;
   }
 
   ngOnInit() {
