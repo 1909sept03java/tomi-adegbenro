@@ -1,0 +1,25 @@
+<p>login works!</p>
+<div class="display">
+	<div id="formContent">
+		<!-- Icon -->
+			<div class="fadeIn first">
+				<img
+					src="https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/2437/s300/revaturelogo.jpg"
+					id="icon" alt="User Icon" width="150" height="375"/>
+			</div>
+		<!-- action attribute is the form handler -->
+		<!-- method attribute is the HTTP method to be used -->
+		<form>
+			<fieldset>
+				<legend>username:</legend>
+				<input required autocomplete="off" type = "text" name="username" [(ngModel)]="username"/>
+			</fieldset>
+			<fieldset>
+				<legend>password:</legend>
+				<input required autocomplete="off" type="password" name="password" [(ngModel)]="password"/>
+			</fieldset>
+			<br>
+			<button type="submit" (click) = "loginUser()"> Log In</button>
+		</form>
+	</div>	
+	</div>
